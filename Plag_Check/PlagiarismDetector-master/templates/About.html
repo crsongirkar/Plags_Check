@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+<!-- ICONES -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<style>
+   /* Add this CSS to your existing styles or in a separate CSS file */
+
+/* Body styles */
+
+
+/* Navbar styles */
+.navbar {
+    background-color: #343a40; /* Adjust background color as needed */
+}
+
+.navbar-brand {
+    color: #17a2b8; /* Adjust text color as needed */
+}
+
+/* Navbar button styles */
+.navbar-toggler {
+    border-color: #17a2b8; /* Adjust border color as needed */
+}
+
+/* Dark theme styles */
+.dark-theme {
+    background-color: #343a40; /* Adjust dark background color as needed */
+    color: #fff; /* Adjust dark text color as needed */
+}
+
+/* Header styles */
+header h1 {
+    font-size: 2.5rem;
+}
+
+header p {
+    font-size: 1.25rem;
+}
+
+/* Card styles */
+.card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgb(225,224,215);
+}
+
+/* Footer styles */
+footer {
+    padding: 20px 0;
+    background-color: #f8f9fa; /* Adjust background color as needed */
+    color: #555; /* Adjust text color as needed */
+}
+
+/* Button styles */
+.btn-success {
+    background-color: #28a745; /* Adjust background color as needed */
+    border-color: #28a745; /* Adjust border color as needed */
+    color: #fff; /* Adjust text color as needed */
+}
+
+.btn-success:hover {
+    background-color: #218838; /* Adjust hover background color as needed */
+    border-color: #218838; /* Adjust hover border color as needed */
+}
+.content-container {
+            max-width: 800px; /* Adjust the maximum width as needed */
+            margin: 0 auto; /* Center the container */
+            padding: 20px; /* Add some padding around the container */
+        }
+
+        .content-container p {
+            margin-bottom: 20px; /* Add margin to paragraphs */
+        }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+    .about-section {
+      padding: 40px;
+      text-align: center;
+      background-color: #8be7f3;
+      color: rgb(1, 9, 9);
+    }
+
+    .about-section p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .team-section {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .team-member {
+      margin-bottom: 40px;
+    }
+
+    .team-member h2 {
+      color: #000;
+    }
+
+    .team-member .title {
+      color: rgb(4, 4, 4);
+      font-size: 1rem;
+      margin-top: 10px;
+    }
+
+    .team-member p {
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+
+    .team-member .button {
+      background-color: #000;
+      margin-top: 20px;
+    }
+
+    .team-member .button:hover {
+      background-color: #bc3636;
+    }
+
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: rgb(4, 4, 4);
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: rgb(255, 255, 255);
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #bc3636;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary p-4">
+<div class="container">
+
+    <button class="btn btn-secondary me-4" id="alterarTemaSite" onclick="alterarTemaSite()"><i
+class="bi bi-brightness-high-fill"></i>
+</button>
+
+
+
+<!-- Logo -->
+<a class="navbar-brand text-success" href="index.html"><strong>Plag Check <i class="bi bi-book"></i></strong></a>
+
+<!-- Navbar toggler button for mobile -->
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<!-- Navbar content -->
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<ul class="navbar-nav ml-auto">
+<li class="nav-item">
+<!-- Add your content here if needed -->
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Algorithms
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+<a class="dropdown-item" target="_blank" href="boyer_moore.html">Boyer-Moore Algorithm</a>
+<a class="dropdown-item" target="_blank" href="fingerprinting.html">Fingerprinting Algorithm</a>
+<a class="dropdown-item" target="_blank" href="cosine.html">Cosine Similarity Algorithm</a>
+<a class="dropdown-item" target="_blank" href="ngram.html">N-gram Algorithm</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="About.html">About Us</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="contact us.html">Contact Us</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+
+<div class="about-section">
+    <h1>About Plag Check</h1>
+    <p>
+      Plag Check is committed to upholding academic and professional integrity by combating plagiarism.
+      Plagiarism involves the unethical act of utilizing someone else's work, ideas, or intellectual content
+      without proper acknowledgment, thereby presenting it as one's own.
+      Our mission is to provide effective tools and educational resources to promote originality and prevent
+      the consequences of plagiarism.
+    </p>
+  </div>
+
+
+<br><br><br><br><br><br>
+<h2 style="text-align:center">Team Member</h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+
+      <div class="container">
+        <h2> Chinmay</h2>
+        <p class="title">Role</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>abc123@gmail.comm</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+
+<!--   <img src="{{ url_for('display_image') }}" alt="Displayed Image">-->
+        <div class="container">
+        <h2>Mohit</h2>
+        <p class="title">Role</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>abc123@gmail.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+
+      <div class="container">
+        <h2>Aditya</h2>
+        <p class="title">Role</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>abc123@gmail.comm</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+
+ </div>
+</div>
+<div class="column">
+    <div class="card">
+
+      <div class="container">
+        <h2>Piyush</h2>
+        <p class="title">Role</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>abc123@gmail.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+
+ </div>
+</div>
+
+</body>
+<script>
+    // altera tem site
+function alterarTemaSite() {
+    let tema = document.querySelector("html").getAttribute("data-bs-theme");
+    if (tema === "dark") {
+        document.querySelector("html").setAttribute("data-bs-theme", "light");
+        document.querySelector("#alterarTemaSite").innerHTML = `<i class="bi bi-moon-fill"></i>`
+    }else{
+        document.querySelector("html").setAttribute("data-bs-theme", "dark");
+        document.querySelector("#alterarTemaSite").innerHTML = `<i class="bi bi-brightness-high-fill""></i>`
+    }
+
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-pzjw8td+ctjUypRlFB5n9FfANtYfiT8sJ2L76S6tVnE+8kD71u26US3G2v4M"
+crossorigin="anonymous"></script>
+</html>

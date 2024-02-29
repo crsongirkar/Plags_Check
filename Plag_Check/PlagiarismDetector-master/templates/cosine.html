@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+{% block head %}
+
+{% endblock %}
+{% block content %}
+ <form method="POST" action="/" enctype="multipart/form-data">
+    <div class="input-group">
+        {{ form.hidden_tag() }}
+        {{ form.checkText.label(class_="form-text", style="width: 100vw; text-align: center; font-weight: 900; font-size:50px; font-family: 'Roboto Mono', monospace;") }}<br>
+        {{ form.checkText(class_="text-area", placeholder="  Enter Or Paste Here") }}
+    </div>
+  <div class="container text-center mt-5">
+    <div class="row">
+        <div class="col">
+            {{ form.submit(class="btn btn-primary", onclick="move()") }}
+
+            <input type="file" id="file-input" name="file" accept=".pdf,.zip,.txt" class="hidden">
+
+            <label for="file-input" class="btn btn-primary cursor-pointer">Upload PDF</label>
+
+        </div>
+    </div>
+</div>
+
+  </form>
+
+  <br>
+  <br>
+
+  <div id="myProgress" class="progress cntr">
+    <div id="myBar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"></div>
+  </div>
+<script>
+var i = 0;
+function move() {
+  if (i == 0) {
+    i = 1;
+    var elem = document.getElementById("myBar");
+    var width = 1;
+    var id = setInterval(frame, 10);
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+        i = 0;
+      } else {
+        width++;
+        elem.style.width = width + "%";
+      }
+    }
+  }
+}
+
+function checkTextLimit() {
+    var textArea = document.getElementById("textArea");
+    var words = textArea.value.split(/\s+/).filter(function (word) {
+        return word.length > 0;
+    });
+    if (words.length > 500) {
+        alert("Text limit exceeded. Please enter up to 500 words.");
+        return false;
+    }
+    return true;
+}
+
+var i = 0;
+function move() {
+    if (i == 0) {
+        i = 1;
+        var elem = document.getElementById("myBar");
+        var width = 1;
+        var id = setInterval(frame, 10);
+        function frame() {
+            if (width >= 100) {
+                clearInterval(id);
+                i = 0;
+            } else {
+                width++;
+                elem.style.width = width + "%";
+            }
+        }
+    }
+}
+</script>
+{% endblock content %}

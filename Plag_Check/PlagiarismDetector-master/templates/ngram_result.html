@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+{% block content %}
+<style>
+    .result-container {
+        display: flex;
+        justify-content: space-between;
+        max-width: 800px;
+        margin: 100px auto;
+    }
+
+    .pie-chart-container {
+        width: 50%;
+        text-align: left;
+    }
+
+    .pie-chart {
+        width: 100%;
+        height: auto;
+        outline: 1px solid #16a7e0;
+        margin: 0;
+    }
+
+    .result-details {
+        width: 45%;
+    }
+
+    .pie-chart h1 {
+        margin-top: 1rem;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .percentage-label {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px;
+        color: #30f8ff;
+    }
+</style>
+
+<div class="result-container">
+    <div class="pie-chart-container">
+        <h1 class="display-4">Ngram Results</h1>
+        {% for x in output %}
+        <ul class="list-group">
+            <li class="list-group-item">
+                <h4><span class="badge badge-success">Percentage Match  </span></h4>
+                <strong>{{ '{:.2f}'.format(x[0] * 100) }}%</strong>
+            </li>
+            <a href="{{ x[1] }}" class="list-group-item list-group-item-action">
+                <h4><span class="badge badge-success"> Check on Google  </span></h4>
+                <strong>{{ x[1] }}</strong>
+            </a>
+            <li class="list-group-item">
+                <h4><span class="badge badge-success">Sentence Match </span></h4>
+                <strong>{{ x[2] }}</strong>
+            </li>
+        </ul>
+        <br>
+        {% endfor %}
+    </div>
+    <div class="result-details">
+        <canvas id="myPieChart" width="300" height="300" class="pie-chart">
+            <div class="percentage-label">{{ '{:.2f}'.format(output[0][0] * 100) }}%</div>
+        </canvas>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var data = [ {% for x in output %} {{ '{:.2f}'.format(x[0] * 100) }}, {% endfor %} ];
+    var labels = [ {% for x in output %} "{{ x[1] }}", {% endfor %} ];
+    var colors = [ {% for x in output %} "{{ x[3] }}", {% endfor %} ]; // Assuming x[3] contains color data
+
+    var ctx = document.getElementById('myPieChart').getContext('2d');
+    var myPieChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: data,
+                backgroundColor: colors,
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            animation: {
+                animateRotate: true,
+                animateScale: true
+            }
+        }
+    });
+</script>
+
+{% endblock content %}
