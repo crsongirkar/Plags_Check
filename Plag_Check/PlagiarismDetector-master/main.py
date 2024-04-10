@@ -13,7 +13,6 @@ get_text = []
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
-
     form = PlagForm()
     if form.validate_on_submit():
         text = form.checkText.data
@@ -112,6 +111,10 @@ def cosines():
     return render_template('cosine.html', form=form)
 
 
+@app.route('/index.html')
+def Home():
+    return render_template('index.html')
+
 @app.route('/About.html')
 def about():
     return render_template('About.html')
@@ -122,4 +125,4 @@ def contact():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port='8082')
+    app.run(host='0.0.0.0', port='8084')

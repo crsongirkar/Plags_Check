@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br" data-bs-theme="dark" xmlns="http://www.w3.org/1999/html" xmlns="">
 
@@ -79,14 +80,6 @@ header p {
 .card:hover {
     box-shadow: 0 8px 16px rgb(225,224,215);
 }
-
-/* Footer styles */
-footer {
-    padding: 20px 0;
-    background-color: #f8f9fa; /* Adjust background color as needed */
-    color: #555; /* Adjust text color as needed */
-}
-
 /* Button styles */
 .btn-success {
     background-color: #28a745; /* Adjust background color as needed */
@@ -107,6 +100,273 @@ footer {
         .content-container p {
             margin-bottom: 20px; /* Add margin to paragraphs */
         }
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	line-height: 1.5;
+	font-family: 'Poppins', sans-serif;
+}
+
+.footer {
+	background-color: black;
+	padding: 80px 0;
+}
+
+.container {
+	max-width: 1170px;
+	margin: auto;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+ul {
+	list-style: none;
+}
+
+.footer-col {
+	width: 25%;
+	padding: 0 15px;
+}
+
+.footer-col h4 {
+	font-size: 18px;
+	color: #FFF;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+
+.footer-col h4::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -10px;
+	background-color: #E91E63;
+	width: 50px;
+	height: 2px;
+}
+
+.footer-col ul li:not(:last-child) {
+	margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+	color: #DDD;
+	display: block;
+	font-size: 1rem;
+	font-weight: 300;
+	text-transform: capitalize;
+	text-decoration: none;
+	transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+	color: #FFF;
+	padding-left: 7px;
+}
+
+.footer-col .social-links a {
+	color: #FFF;
+	background-color: rgba(255, 255, 255, 0.2);
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	text-align: center;
+	margin: 0 10px 10px 0;
+	line-height: 40px;
+	transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover {
+	color: #151515;
+	background-color: #FFF;
+}
+
+@media(max-width: 767px) {
+	.footer-col {
+		width: 50%;
+		margin-bottom: 30px;
+	}
+}
+
+@media(max-width: 574px) {
+	.footer-col {
+		width: 100%;
+	}
+}
+ <style>
+        .container {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        .unveiling-excellence {
+            color: white;
+        }
+
+
+<!-- Input box CSS -->
+        <style>
+    /* Input box CSS */
+    .form-container {
+        width: 80%;
+        max-width: 600px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: auto;
+        margin-top: 20px;
+        text-align: center; /* Center align text */
+    }
+
+    .input_section {
+        margin-bottom: 20px;
+    }
+
+    .upload_option {
+        margin-top: 10px;
+    }
+
+    .text-area {
+        width: 100%;
+        height: 150px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+    }
+
+    /* Button */
+    .btn-primary {
+    button.hover:black;
+        font-size: 1rem;
+    }
+
+    .sede_ara {
+    width: 30px;
+}
+
+.sst_loader {
+    display: block;
+    position: relative;
+    height: 32px;
+    width: 190px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border: 2px solid #FFF;
+    border-radius: 20px;
+}
+
+.sst_loader:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #fff;
+    animation: sst_loader_animate 3s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes sst_loader_animate {
+    0% {
+        left: 0;
+        transform: translateX(0%);
+        box-shadow:
+        -5px 0 0 -4px rgba(255, 61, 0, 0.6),
+        -10px 0 0 -6px rgba(255, 61, 0, 0.4),
+        -15px 0 0 -8px rgba(255, 61, 0, 0.2);
+    }
+    49% {
+        left: 100%;
+        transform: translateX(-100%);
+        box-shadow:
+        -5px 0 0 -4px rgba(255, 61, 0, 0.6),
+        -10px 0 0 -6px rgba(255, 61, 0, 0.4),
+        -15px 0 0 -8px rgba(255, 61, 0, 0.2);
+    }
+    51% {
+        left: 100%;
+        transform: translateX(-100%);
+        box-shadow:
+        5px 0 0 -4px rgba(255, 61, 0, 0.6),
+        10px 0 0 -6px rgba(255, 61, 0, 0.4),
+        15px 0 0 -8px rgba(255, 61, 0, 0.2);
+    }
+    100% {
+        left: 0;
+        transform: translateX(0%);
+        box-shadow:
+        5px 0 0 -4px rgba(255, 61, 0, 0.6),
+        10px 0 0 -6px rgba(255, 61, 0, 0.4),
+        15px 0 0 -8px rgba(255, 61, 0, 0.2);
+    }
+}
+
+#loader_con11 {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    align-items: center;
+    justify-content: center;
+    z-index: 108;
+    display: flex;
+    background-color: #000;
+    flex-direction: column;
+}
+
+#loader_con11 p {
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+/* Progress bar styles */
+.progress {
+    position: relative;
+    width: 100%;
+    height: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: #007bff;
+    transition: width 0.3s ease-in-out;
+}
+</style>
+
+
+    </style>
+
 </style>
 <body>
 
@@ -135,6 +395,7 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
 <li class="nav-item">
 <!-- Add your content here if needed -->
 </li>
+    <a class="nav-link" href="index.html">Home</a>
 <li class="nav-item dropdown">
 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -228,8 +489,8 @@ Algorithms
 
 <!-- Experiência Personalizada Card -->
 <div class="col-12 col-md-4">
-<div class="card mb-6 mb-md-0" style="width: 18rem; ">
-<div class="card-body ">
+<div class="card mb-6 mb-md-0" style="width: 18rem;">
+<div class="card-body">
 <h5 class="card-title text-center text-success" style="font-size: x-large;"><i class="bi bi-tools"></i>
 </h5>
 <h6 class="card-subtitle mb-2 text-body-secondary">Free for All </h6>
@@ -240,7 +501,7 @@ entre outros.</p>
 </div>
 
 <!-- Atendimento 24h Card -->
-<div class="col-12 col-md-4 ">
+<div class="col-12 col-md-4">
 <div class="card mb-6 mb-md-0" style="width: 18rem;">
 <div class="card-body">
 <h5 class="card-title text-center text-success" style="font-size: x-large;"><i
@@ -262,9 +523,12 @@ class="bi bi-pen"></i>
 <!-- ... (unchanged) ... -->
 </div>
 </section>
+
+<!--Plag Info-->
  <div class="content-container">
-        <div class="row mt-4">
-            <div class="col-12">
+    <div class="col-1 col-md-40">
+    <div class="card mb-1 mb-md-10" style="width: 50rem;">
+       <div class="card-body">
                 <h2 class="text-success">Unveiling Excellence in Plagiarism Detection</h2>
                 <p>
                     Plagiarism, the act of presenting someone else's work, ideas, or intellectual property as your
@@ -290,9 +554,114 @@ class="bi bi-pen"></i>
             </div>
         </div>
     </div>
-<footer class="mt-3 text-center bg-body-tertiary">
-<p> Footer Still Working</p>
-</footer>
+ </div>
+
+<!--text input box -->
+<!--    <div class="container form-container">-->
+<!--        <form id="plagiarismForm" method="POST" action="/" enctype="multipart/form-data" onsubmit="showProgressBar()">-->
+<!--            &lt;!&ndash; Input section &ndash;&gt;-->
+<!--            <div class="input_section">-->
+<!--                <label for="checkText" class="form-text">Enter Text:</label>-->
+<!--                <textarea id="checkText" name="checkText" class="text-area"-->
+<!--                    placeholder="Enter or paste text here"></textarea>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; Upload option &ndash;&gt;-->
+<!--            <div class="upload_option">-->
+<!--                <label for="file-input" class="btn btn-primary cursor-pointer">Upload PDF</label>-->
+<!--                <input type="file" id="file-input" name="file" accept=".pdf,.zip,.txt" class="hidden">-->
+<!--            </div>-->
+
+<!--            <div class="text-center mt-5">-->
+<!--                <button type="submit" class="btn btn-primary">Submit</button>-->
+<!--            </div>-->
+<!--        </form>-->
+
+<!--        &lt;!&ndash; Progress bar &ndash;&gt;-->
+<!--        <div id="progressContainer" class="progress" style="display: none;">-->
+<!--            <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"-->
+<!--                style="width: 10%"></div>-->
+
+<!--        </div>-->
+<!--    </div>-->
+
+
+
+
+<!--Plag Info-->
+ <div class="content-container">
+    <div class="col-1 col-md-40">
+    <div class="card mb-1 mb-md-10" style="width: 50rem;">
+       <div class="card-body">
+    <h2>Benefits of SmallSEOTools’ Plagiarism Detector</h2>
+        <p>The plagiarism checker free utility offered on SmallSEOTools’ is second to none due to the advantages it provides to its users. From students to teachers, researchers, writers, publishers, and bloggers, everyone can gain the top benefits of SmallSEOTools’ plagiarism detector, which include the following:</p>
+        <h3>Quick and Hassle-Free</h3>
+        <p>The plagiarism checker online tool available on this platform is a super-fast utility that generates results within a matter of seconds. For using this plagiarism detector, the users won’t have to follow any convoluted procedure. The user-friendly interface of this facility makes the process to check plagiarism free from all kinds of intricacies.</p>
+        <h3>Multi-Platform Supportive</h3>
+        <p>Our plagiarism detector is a web-based tool that can be accessed through any kind of device. You won’t have to install a plugin or software for checking duplication with this plagiarism checker online utility. Whether you have an Android, iOS, Windows, Linux, or Mac device, you can easily access our online plagiarism remover and figure out the instances of plagiarism in a couple of clicks. All you need to check plagiarism online on SmallSEOTools is to connect your device with a stable internet connection.</p>
+        <h3>Free Plagiarism Checker</h3>
+        <p>There are no costs involved with the usage of SmallSEOTools’ plagiarism checker. The users aren’t asked to pay a single penny for the consumption of this online duplicate check service. No matter how many pieces of text you need to check for plagiarism, you can use this plagiarism detector as many times as you desire without facing any restriction or paying any charges.</p>
+        <h3>Find Matching Sources</h3>
+        <p>When it comes to detecting plagiarism, everybody desires to know about the links from where their text matches. The best free plagiarism checker by SmallSEOTools not only detects the plagiarized portions of your text but also provides you with a list of sources from where your entered text is matching. If you want to keep the list of matching sources as evidence, you can download the plagiarism scan report for free with a single click.</p>
+        <h2>FEATURES OF OUR PLAGIARISM CHECKER</h2>
+        <p>A list of key features:</p>
+        <h3>1. Billions of web pages</h3>
+        <p>This tool has the ability to check plagiarism by matching your content against billions of webpages on the Internet. Once you upload your content, it will automatically run it against every existing content on the web within seconds, making it the most sophisticated yet fastest plagiarism scanner you'll ever come across in your lifetime.</p>
+        <h3>2. Automatic rewriting feature</h3>
+        <p>It has an option for automatically rewriting the content you run on it in just one click. If your content contains plagiarized work, all you have to do is click on the rewrite option and you'll be taken to our auto-<a href="https://smallseotools.com/article-rewriter/" data-name="https://smallseotools.com/article-rewriter/">paraphrasing tool</a>, where your content will be updated immediately. This is a built-in feature available right inside the tool for absolutely free.</p>
+        <!-- Other features omitted for brevity -->
+        <h2>Importance of Plagiarism detection</h2>
+        <p>Whether you know it or not, plagiarism does affect you in some way. It doesn't matter whether you're the content creator or the one who consumes the content, plagiarism affects us all.</p>
+        <!-- Additional content omitted for brevity -->
+        <h2>Frequently Asked Questions (FAQs)</h2>
+        <h3>What is the word limit to check plagiarism?</h3>
+        <p>The different plans of our plagiarism checker allow the users a distinctive word limit to check for plagiarism. In the table given below, we have outlined the word limit permitted in each version.</p>
+        <!-- Other FAQs omitted for brevity -->
+       </div>
+    </div>
+    </div>
+ </div>
+
+	<footer class="footer">
+		<div class="container row">
+			<div class="footer-col">
+				<h4>company</h4>
+				<ul>
+					<li><a href="#">about us</a></li>
+					<li><a href="#">contact us</a></li>
+					<li><a href="#">privacy policy</a></li>
+					<li><a href="#">visit website</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h4>our Team</h4>
+				<ul>
+					<li><a href="#">Mohit Chavan</a></li>
+					<li><a href="#">Piyush Mahajan </a></li>
+					<li><a href="#">Aditya Patil</a></li>
+					<li><a href="#">Chinmay Songirkar</a></li>
+
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h4>Our Services </h4>
+				<ul>
+					<li><a href="#">Plagiarism tool</a></li>
+					<li><a href="#">Paragraph Check</a></li>
+					<li><a href="#">AI Detection</a></li>
+					<li><a href="#">XYZ</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h4>follow us</h4>
+				<div class="social-links">
+					<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+					<a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+					<a href="#"><i class="fa-brands fa-instagram"></i></a>
+					<a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+				</div>
+			</div>
+		</div>
+	</footer>
 
 <!-- BOOTSTRAP JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -300,6 +669,8 @@ integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cD
 crossorigin="anonymous"></script>
 
 </body>
+
+
 <script>
     // altera tem site
 function alterarTemaSite() {
@@ -318,7 +689,7 @@ function alterarTemaSite() {
         window.location.href = "ngram.html";
     }
 
-  // navigation to another site
+
     function alterarTemaSite() {
         let tema = document.querySelector("html").getAttribute("data-bs-theme");
         if (tema === "dark") {
@@ -348,6 +719,52 @@ function alterarTemaSite() {
         .pauseFor(5500)
         .start();
     </script>
+   <script>
+function startProgressBar() {
+    moveProgressBar();
+    // Add additional logic if needed
+}
+
+function moveProgressBar() {
+    var elem = document.getElementById("myBar");
+    var width = 1;
+    var id = setInterval(frame, 10);
+
+    function frame() {
+        if (width >= 100) {
+            clearInterval(id);
+        } else {
+            width++;
+            elem.style.width = width + "%";
+        }
+    }
+}
+    function setCookie(cookieName, cookieValue, expirationDays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (expirationDays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
+    }
+
+    // Example usage: set a cookie named "theme" with value "dark" that expires in 365 days
+    setCookie("theme", "dark", 365);
+
+function checkTextLimit() {
+    var textArea = document.getElementById("textArea");
+    var words = textArea.value.split(/\s+/).filter(function (word) {
+        return word.length > 0;
+    });
+
+    if (words.length > 500) {
+        alert("Text limit exceeded. Please enter up to 500 words.");
+        return false;
+    }
+    return true;
+
+
+
+   </script>>
 
 </html>
 
+<!--https://github.com/Febrianto752/Plagiarism-Checker-T.git--->
