@@ -22,6 +22,7 @@
 
     .result-details {
         width: 45%;
+        position: relative; /* Ensure relative positioning for absolute positioning of the button */
     }
 
     .pie-chart h1 {
@@ -38,60 +39,170 @@
         font-size: 24px;
         color: #30f8ff;
     }
+
+    button {
+        appearance: none;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        isolation: isolate;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 20px; /* Adjust as needed */
+    }
+
+    .button {
+        color: #121212;
+        font-size: 16px;
+        line-height: 1.5;
+        font-weight: 500;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px;
+        outline: 2px solid transparent;
+        outline-offset: 4px;
+        position: relative;
+    }
+
+    .button:focus-visible {
+        outline-color: #1212df;
+    }
+
+    .button::before {
+        content: '';
+        z-index: -1;
+        border-radius: inherit;
+        background: #121212;
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: opacity 200ms ease;
+    }
+
+    .button:hover::before {
+        transition: opacity 100ms ease;
+        opacity: 1;
+    }
+
+    .button:active::before {
+        transition: opacity 100ms ease;
+        opacity: 0;
+    }
+
+    .button > .front {
+        padding: 12px 96px;
+        border-radius: inherit;
+        background: #F1C40F;
+        transition: transform 200ms ease;
+    }
+
+    .button:hover > .front {
+        transform: translate(-8px, -8px);
+    }
+
+    .button:active > .front {
+        transition: transform 50ms ease;
+        transform: translate(0px, 0px);
+    }
 </style>
 
-<div class="result-container">
-    <div class="pie-chart-container">
-        <h1 class="display-4">Results</h1>
-        {% for x in output %}
-        <ul class="list-group">
-            <li class="list-group-item">
-                <h4><span class="badge badge-success">Percentage Match  </span></h4>
-                <strong>{{ '{:.2f}'.format(x[0] * 100) }}%</strong>
-            </li>
-            <a href="{{ x[1] }}" class="list-group-item list-group-item-action">
+<div class="report-container">
+    <div class="result-container">
+        <div class="pie-chart-container">
+            <h1 class="display-4">Results</h1>
+            {% for x in output %}
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <h4><span class="badge badge-success">Percentage Match</span></h4>
+                    <strong>{{ '{:.2f}'.format(x[0] * 100) }}%</strong>
+                </li>
+                <a href="{{ x[1] }}" class="list-group-item list-group-item-action">
                 <h4><span class="badge badge-success"> Check on Google  </span></h4>
                 <strong>{{ x[1] }}</strong>
             </a>
-            <li class="list-group-item">
-                <h4><span class="badge badge-success">Sentence Match </span></h4>
-                <strong>{{ x[2] }}</strong>
-            </li>
-        </ul>
-        <br>
-        {% endfor %}
-    </div>
-    <div class="result-details">
-        <canvas id="myPieChart" width="300" height="300" class="pie-chart">
-            <div class="percentage-label">{{ '{:.2f}'.format(output[0][0] * 100) }}%</div>
-        </canvas>
+                <li class="list-group-item">
+                    <h4><span class="badge badge-success">Sentence Match</span></h4>
+                    <strong>{{ x[2] }}</strong>
+                </li>
+            </ul>
+            <br>
+            {% endfor %}
+        </div>
+        <div class="result-details">
+            <canvas id="myPieChart" width="300" height="300" class="pie-chart">
+                <div class="percentage-label">{{ '{:.2f}'.format(output[0][0] * 100) }}%</div>
+            </canvas>
+
+            <!-- Move the button here -->
+            <button id="generatePDF" class="button">
+                <div class="front">
+                    <span>Download Report as PDF</span>
+                </div>
+            </button>
+        </div>
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    var data = [ {% for x in output %} {{ '{:.2f}'.format(x[0] * 100) }}, {% endfor %} ];
-    var labels = [ {% for x in output %} "{{ x[1] }}", {% endfor %} ];
-    var colors = [ {% for x in output %} "{{ x[3] }}", {% endfor %} ]; // Assuming x[3] contains color data
 
-    var ctx = document.getElementById('myPieChart').getContext('2d');
-    var myPieChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: labels,
-            datasets: [{
-                data: data,
-                backgroundColor: colors,
-                hoverOffset: 4
-            }]
-        },
-        options: {
-            animation: {
-                animateRotate: true,
-                animateScale: true
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+
+<script>
+    // Check if output data is available
+    var outputData = {{ output | default("[]") | tojson }};
+
+    // Check if Chart.js library is available
+    if (typeof Chart !== 'undefined') {
+        // Initialize Chart.js
+        var ctx = document.getElementById('myPieChart');
+        var myPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: outputData.map(function (item) { return item[1]; }),
+                datasets: [{
+                    data: outputData.map(function (item) { return item[0] * 100; }),
+                    backgroundColor: outputData.map(function (item) { return item[3]; }), // Assuming x[3] contains color data
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                animation: {
+                    animateRotate: true,
+                    animateScale: true
+                }
             }
+        });
+    }
+// pdf
+   $(document).ready(function () {
+    var doc = new jsPDF();
+    var specialElementHandlers = {
+        '#editor': function (element, renderer) {
+            return true;
         }
+    };
+
+    $('#generatePDF').click(function () {
+
+        var htmlContent = $('.report-container').html();
+
+        var today = new Date().toLocaleDateString();
+        htmlContent = htmlContent.replace(/Check on Google/g, '');
+        htmlContent = htmlContent.replace(/Sentence Match:/g, `<p class="date">Report Generated on: ${today}</p>`);
+
+        doc.fromHTML(htmlContent, 15, 15, {
+            'width': 170,
+            'elementHandlers': specialElementHandlers
+        });
+        doc.save('Plagiarism_Report.pdf');
     });
+});
 </script>
+
 
 {% endblock content %}

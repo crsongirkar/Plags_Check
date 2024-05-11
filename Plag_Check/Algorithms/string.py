@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup
 
 from Plag_Check.Algorithms.fingerprint import split_into_sentences, generate_fingerprint, calculate_similarity
 
+API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNDBkODI4NTItYjc4Zi00OWRhLTgzNTYtMWYwNDYxZjYwNGU1IiwidHlwZSI6ImFwaV90b2tlbiJ9.bK2f2Vrck6bwsMta6_E5CXuP-TrSo42uexsCyER4tSc'
+
 
 def boyer_moore_search(text, pattern):
     def bad_character_heuristic(pattern):
@@ -66,14 +68,14 @@ def extract_urls(query):
         return []
 
 # Example usage:
-text_to_search = "Your input text here."  # Replace with your actual text
-pattern_to_search = "Pattern to search"  # Replace with your actual pattern
-occurrences = boyer_moore_search(text_to_search, pattern_to_search)
-print("Occurrences:", occurrences)
-
-query_to_search = "Your search query"  # Replace with your actual query
-urls_found = extract_urls(query_to_search)
-print("Extracted URLs:", urls_found)
+# text_to_search = "Your input text here."  # Replace with your actual text
+# pattern_to_search = "Pattern to search"  # Replace with your actual pattern
+# occurrences = boyer_moore_search(text_to_search, pattern_to_search)
+# print("Occurrences:", occurrences)
+#
+# query_to_search = "Your search query"  # Replace with your actual query
+# urls_found = extract_urls(query_to_search)
+# print("Extracted URLs:", urls_found)
 
 
 def get_text_from_url(url, limit=500):
@@ -88,33 +90,3 @@ def get_text_from_url(url, limit=500):
         print("Error fetching website content:", e)
         return ''
 
-def fingerprinting_algorithm(text, n=3):
-    all_sentences = split_into_sentences(text)
-    results = []
-
-    for sentence in all_sentences:
-        ans = []
-        urls = extract_urls(sentence)
-
-        for url in urls:
-            website_text = get_text_from_url(url)
-
-            if website_text:
-                fingerprint1 = generate_fingerprint(sentence, n)
-                fingerprint2 = generate_fingerprint(website_text, n)
-                similarity = calculate_similarity(fingerprint1, fingerprint2)
-                ans.append([similarity, url])
-
-        if ans:
-            max_similarity, max_url = max(ans, key=lambda x: x[0])
-            results.append([max_similarity, max_url, sentence])
-
-    return results
-
-# Example usage:
-text_to_check = "Your input text here."
-results = fingerprinting_algorithm(text_to_check, n=3)
-
-for result in results:
-    similarity, url, sentence = result
-    print(f"Sentence: {sentence}\nSimilarity: {similarity}\nURL: {url}\n")

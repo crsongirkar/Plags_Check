@@ -3,12 +3,14 @@
 
 {% endblock %}
 {% block content %}
+
 <form method="POST" action="/" enctype="multipart/form-data" onsubmit="return checkTextLimit()">
     <div class="input-group">
         {{ form.hidden_tag() }}
         {{ form.checkText.label(class_="form-text", style="width: 100vw; text-align: center; font-weight: 900; font-size:50px; font-family: 'Roboto Mono', monospace;") }}<br>
         {{ form.checkText(class_="text-area", placeholder="  Enter Or Paste Here") }}
-    </div>
+
+
     <div class="container text-center mt-5">
         <div class="row">
             <div class="col">
