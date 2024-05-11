@@ -4,7 +4,7 @@ import re
 
 from Plag_Check.Algorithms.ngram import extract_urls
 
-API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNDBkODI4NTItYjc4Zi00OWRhLTgzNTYtMWYwNDYxZjYwNGU1IiwidHlwZSI6ImFwaV90b2tlbiJ9.bK2f2Vrck6bwsMta6_E5CXuP-TrSo42uexsCyER4tSc'
+#API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNDBkODI4NTItYjc4Zi00OWRhLTgzNTYtMWYwNDYxZjYwNGU1IiwidHlwZSI6ImFwaV90b2tlbiJ9.bK2f2Vrck6bwsMta6_E5CXuP-TrSo42uexsCyER4tSc'
 
 def split_into_sentences(text):
     sentences = re.split('(?<!\\w\\.\\w.)(?<![A-Z][a-z]\\.)(?<=\\.|\\?|\\!)\\s', text)
